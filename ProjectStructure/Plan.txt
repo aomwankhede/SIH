@@ -1,0 +1,86 @@
+To create a web application for managing and monitoring postgraduate dissertations in a MERN stack, we'll break down the statement into key features, database schema, and a development roadmap.
+
+**Key Features:**
+
+1. **User Authentication:**
+   - User registration and login for students, faculty, and administrators.
+   - Role-based access control to manage permissions.
+
+2. **Dissertation Topic Selection:**
+   - Allow students to select topics based on departmental research thrust areas.
+   - Ensure a balance in the student-guide ratio.
+   - Prevent topic duplication.
+
+3. **Approvals and Ethical Issues:**
+   - Enable faculty to approve or reject selected topics.
+   - Address ethical considerations in the research process.
+
+4. **Research Progress Monitoring:**
+   - Students should update their research progress.
+   - Faculty can review and provide feedback.
+
+5. **Dissertation Evaluation:**
+   - Faculty can evaluate dissertations and provide grades or feedback.
+   - Automatic calculation of final grades based on evaluation criteria.
+
+6. **Publication and Database:**
+   - Allow for publication of research findings from dissertations.
+   - Maintain a database of all dissertations with categories and search functionality.
+
+7. **Withholding of Results:**
+   - Ability to withhold university final year results if a student's dissertation is disapproved.
+
+**Database Schema:**
+
+You'll need a MongoDB database to store data. Here's a simplified schema:
+
+1. **Users Collection:**
+   - Fields: `_id`, `username`, `email`, `password`, `role` (student, faculty, admin).
+
+2. **Dissertations Collection:**
+   - Fields: `_id`, `title`, `student_id` (references Users), `faculty_id` (references Users), `topic`, `status` (approved, rejected, in-progress), `progress`, `evaluation`, `category`, `publication`.
+
+3. **Categories Collection:**
+   - Fields: `_id`, `name` (e.g., departmental thrust areas).
+
+4. **Evaluation Criteria Collection:**
+   - Fields: `_id`, `criterion_name`, `weightage`, `description`.
+
+**Development Roadmap:**
+
+**Week 1-2: Setup and User Authentication**
+- Set up the MERN stack.
+- Implement user registration and login.
+- Create role-based access control.
+  
+**Week 3-4: Dissertation Topic Selection and Approvals**
+- Allow students to select topics.
+- Implement topic approval by faculty.
+- Ensure topic uniqueness.
+  
+**Week 5-6: Research Progress Monitoring**
+- Create a progress tracking system.
+- Allow students to update their progress.
+- Faculty review and feedback.
+
+**Week 7-8: Dissertation Evaluation and Results**
+- Develop the dissertation evaluation system.
+- Calculate final grades.
+- Implement result withholding.
+
+**Week 9-10: Publication and Database**
+- Add a publication feature.
+- Design and implement a searchable database.
+- Create categories for dissertations.
+
+**Week 11-12: Final Testing and Deployment**
+- Test the application thoroughly.
+- Address any bugs or issues.
+- Deploy the app to a hosting platform.
+
+**Week 13+: Refinement and Scaling**
+- Gather feedback from users and make improvements.
+- Optimize database queries and performance.
+- Consider scalability as needed.
+
+Remember that this is a high-level roadmap, and the actual development process may vary depending on the complexity and specific requirements of your application. It's crucial to involve stakeholders such as faculty, students, and administrators throughout the development process to ensure that the app meets their needs and requirements. Additionally, pay attention to ethical considerations in managing dissertation data and results.
