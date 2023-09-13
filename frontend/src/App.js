@@ -5,14 +5,17 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Navbar from "./components/Navbar";
 import StudentProject from "./components/student/StudentProject";
+import Proff_Dashboard from "./components/professor/Proff_Dashboard";
+import ProffProject from "./components/professor/ProffProject";
 function App() {
+  const isProffessor=true;
   return (
       <Router>
         <Navbar/>
         <div className="App">
           <Routes>
-            <Route exact path="/" element={<Student_Dashboard />}></Route>
-            <Route exact path="/y" element={<StudentProject />}></Route>
+            <Route exact path="/" element={isProffessor?<Proff_Dashboard />:<Student_Dashboard/>}></Route>
+            <Route exact path="/y" element={isProffessor?<ProffProject/>:<StudentProject />}></Route>
             <Route exact path="/about" element={<About/>}></Route>
             <Route exact path="/contact" element={<Contact />}></Route>
           </Routes>
