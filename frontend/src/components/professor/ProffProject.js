@@ -7,7 +7,6 @@ const ProffProject = () => {
 
     return (
       <div>
-        {console.log(filteredProjects)}
         {filteredProjects.map((project) => (
           <ProjectCard project={project} key={project.id} />
         ))}

@@ -28,8 +28,7 @@ const ProjectCard = ({ key, project }) => {
           }}
         >
           <div className="accordion-body">
-            <div>{project.tags}</div>
-            <div >{project.description}</div>
+            <div>{project.description}</div>
           </div>
         </div>
       </div>
