@@ -9,7 +9,9 @@ const projects = [
         id:2,
         pId:[1],
         sId:-1,
-        pName:'Memory Forensic'
+        pName:'Memory Forensic',
+        desc:"ABC",
+        tags:"CS"
     },
     {
         id:3,
