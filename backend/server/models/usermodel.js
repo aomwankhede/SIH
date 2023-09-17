@@ -2,6 +2,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
  
 const UserSchema = new Schema({
+ username:{
+   type: String,
+   required: true
+ },
  email: {
   type: String,
   required: true,
@@ -11,6 +15,15 @@ const UserSchema = new Schema({
   type: String,
   required: true
  },
+ studentid:{
+   type:Number,
+  //  required:true,
+   default:null
+ },
+ profid:{
+   type:Number,
+   default:null
+ },
  role: {
   type: String,
   default: 'basic',
@@ -18,8 +31,11 @@ const UserSchema = new Schema({
  },
  accessToken: {
   type: String
- }
-});
+ },
+//  projectfile: {
+//     type: String
+//  }
+},{timestamps : true});
  
 const User = mongoose.model('user', UserSchema);
  
