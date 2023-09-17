@@ -1,10 +1,21 @@
 const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/usercontrollers');
+const projectController = require('../controllers/projectcontroller');
+const upload = require('../middlewarre/upload')
+const submit = require('../middlewarre/submit')
  
-router.post('/signup', userController.signup);
+router.post('/signup',upload.array('projectfile[]'), userController.signup);
  
 router.post('/login', userController.login);
+
+router.post('/dashboard',userController.allowIfLoggedin)
+
+router.post('/dashboard/requests',userController.allowIfLoggedin, projectController.getrequests);
+
+router.post('/project',userController.allowIfLoggedin, projectController.projectsave);
+
+router.post('/sendrequest',userController.allowIfLoggedin, submit.request, projectController.sendrequest);
  
 router.get('/user/:userId', userController.allowIfLoggedin, userController.getUser);
  

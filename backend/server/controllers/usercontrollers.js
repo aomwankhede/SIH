@@ -2,6 +2,8 @@ const User = require('../models/usermodel');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const { roles } = require('../roles');
+const Project = require("../models/project")
+const Request = require("../models/request")
  
 async function hashPassword(password) {
  return await bcrypt.hash(password, 10);
@@ -13,9 +15,18 @@ async function validatePassword(plainPassword, hashedPassword) {
  
 exports.signup = async (req, res, next) => {
  try {
-  const { email, password, role } = req.body
+  const {username, email, password, role ,sid, profid} = req.body
   const hashedPassword = await hashPassword(password);
-  const newUser = new User({ email, password: hashedPassword, role: role || "basic" });
+  const newUser = new User({username, email, password: hashedPassword,studentid:sid || null, profid:profid || null, role: role || "basic" ,});
+  // if(req.files){
+  //   let path = ''
+  //   req.files.forEach(function(files, index, array){
+  //     path = path + files.path + ','
+  //   })
+  //   path = path.substring(0, path.lastIndexOf(","))
+  //   console.log(path);
+  //   User.projectfile = path
+  // }
   if(newUser.email == process.env.ADMIN_EMAIL){
     newUser.role = "admin"
   }

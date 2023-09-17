@@ -1,0 +1,11 @@
+Features implemented (backend)
+* Login/signup authorization using jwt tokens
+* role based access control (student, professor, admin)
+* route for accessing requests ( for both students and professor)
+* database for saving project topics
+* database for sending requests 
+* admin routes for accessing and updating the user data
+
+TO DO
+* Redirecting user to dashboard on login
+* supervisor routes for updating the project data
