@@ -1,35 +1,40 @@
-import React from 'react'
+import React, { useState } from "react";
 
-const ProjectCard = ({ project }) => {
-    return (
-      <div className="dropdown mt-2">
-        <button
-          className="btn btn-secondary bg-dark dropdown-toggle"
-          type="button"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
-          <p style={{ width: "50vw" }}>{project.pName}</p>
-        </button>
-        <ul className="dropdown-menu">
-          <li>
-            <a className="dropdown-item" href="#">
-              {project.pId}
-            </a>
-          </li>
-          <li>
-            <a className="dropdown-item" href="#">
-              Another action
-            </a>
-          </li>
-          <li>
-            <a className="dropdown-item" href="#">
-              Something else here
-            </a>
-          </li>
-        </ul>
-      </div>
-    );
+const ProjectCard = ({ key, project }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const handleClick = () => {
+    setIsOpen(!isOpen);
   };
 
-export default ProjectCard
+  return (
+    <div className="accordion " id={`accordionPanelsStayOpenExample`}>
+      <div className="accordion-item">
+        <h2 className="accordion-header" id={`panelsStayOpen-headingOne`}>
+          <button
+            className={`accordion-button ${
+              isOpen ? "active" : ""
+            } bg-dark text-white`}
+            type="button"
+            onClick={handleClick}
+          >
+            {project.pName}
+          </button>
+        </h2>
+        <div
+          className={`accordion-collapse ${isOpen ? "show" : "collapse"}`}
+          aria-labelledby="panelsStayOpen-headingOne"
+          style={{
+            transition: "height 0.5s ease-in-out", // Adjust the duration as needed
+          }}
+        >
+          <div className="accordion-body">
+            <div>{project.tags}</div>
+            <div >{project.description}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ProjectCard;
