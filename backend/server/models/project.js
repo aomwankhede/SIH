@@ -9,9 +9,16 @@ const Projectschema = new Schema({
     description:{
         type:String
     },
-    tags:[{
+    department:{
         type:String
+    },
+    professors:[{
+        type:Schema.Types.ObjectId,
+        ref:'user'
     }],
+    projectstatus:{
+        type:String
+    },
     studentid:{
         type:Number,
         default: null,
@@ -21,7 +28,14 @@ const Projectschema = new Schema({
         type:Number,
         default:null,
         // ref:User.profid
-    }
+    },
+    deadline:{
+        type:Date
+    },
+    deadlinedesc:{
+        type:String
+    },
+    work:[{type:Number}]
 })
 
 const Project = mongoose.model('project', Projectschema)
