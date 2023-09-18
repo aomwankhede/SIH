@@ -28,7 +28,17 @@ const ProjectCard = ({ key, project }) => {
           }}
         >
           <div className="accordion-body">
-            <div>{project.description}</div>
+            {window.location.href === "http://localhost:3000/" ? (
+              <div>{project.description}</div>
+            ) : (
+              <ol type="i">
+                <li className="mt-1" style={{border:'2px double #666362'}}></li>
+                <li className="mt-1" style={{border:'2px double #666362'}}></li>
+                <li className="mt-1" style={{border:'2px double #666362'}}></li>
+                <li className="mt-1" style={{border:'2px double #666362'}}></li>
+                <li className="mt-1" style={{border:'2px double #666362'}}></li>
+              </ol>
+            )}
           </div>
         </div>
       </div>
