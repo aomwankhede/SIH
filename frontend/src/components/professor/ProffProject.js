@@ -3,7 +3,7 @@ import projectA from '../../dummyProjectAssigned';
 import ProjectCard from './projectCard';
 const ProffProject = () => {
     const currIdP=1;
-    const filteredProjects = projectA.filter((project) => project.pId === currIdP);
+    const filteredProjects = projectA.filter((project) => project.profid === currIdP);
 
     return (
       <div>

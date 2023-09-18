@@ -17,7 +17,7 @@ const ProjectCard = ({ key, project }) => {
             type="button"
             onClick={handleClick}
           >
-            {project.pName}
+            {project.projectname}
           </button>
         </h2>
         <div

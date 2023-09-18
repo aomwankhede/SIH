@@ -22,7 +22,8 @@ exports.projectsave = async(req,res,next) => {
    }
 
    exports.getprojects = async (req, res, next) => {
-    const projects = await Project.find({});
+     const projects = await Project.find({});
+     console.log(projects);
     res.status(200).json({
      data: projects
     });

@@ -1,44 +1,33 @@
-const projects = [
-    {
-        id:1,
-        pId:[1],
-        sId:-1,
-        tags:['proccess','os','dbms'],
-        pName:'Proccess Forensic',
-        description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem illo, maiores ipsum explicabo voluptatibus eos nisi quod harum incidunt? Porro expedita iusto asperiores voluptatem, sit mollitia doloremque beatae, eligendi accusamus eum nisi esse! Magni, aliquid. Fugiat inventore mollitia harum quasi. Maiores omnis iste porro quod molestias eos assumenda corrupti excepturi alias rem, asperiores consequatur hic quo totam laboriosam ducimus iure. Sequi natus perspiciatis unde quae recusandae laboriosam ad distinctio magnam, ipsa porro ab pariatur at quibusdam odit corporis facilis. Ratione sequi illum sed ipsa perferendis facilis rerum, veritatis aut! Tempora cumque autem eius, temporibus magnam, rem, id nobis laudantium ad cum laboriosam. Cum sequi maxime aperiam fugit? Dicta esse iste rem tenetur aspernatur? Nam omnis, voluptate delectus recusandae tenetur aspernatur molestiae? Est iste quidem saepe voluptatem nemo repellendus laborum, ab asperiores quas sit reiciendis in nesciunt blanditiis ratione ullam illum corrupti porro laboriosam eveniet assumenda. Tenetur, doloremque laboriosam? Veniam dolore deserunt magni. Autem animi dicta molestias accusantium quia exercitationem ab, corrupti illum ipsum quod, magnam dolorum vitae rerum quae ipsam beatae dignissimos est voluptas iste, doloremque eum hic? Ratione earum corrupti expedita blanditiis odit maxime debitis optio dolore harum! Blanditiis numquam vel quos rerum esse ratione quis error laudantium eius nostrum! Pariatur unde fugiat magni perferendis numquam a sunt cum distinctio temporibus architecto reiciendis expedita neque totam molestias similique quidem error odio voluptate, molesti"
-    },
-    {
-        id:2,
-        pId:[1],
-        sId:-1,
-        pName:'Memory Forensic',
-        desc:"ABC",
-        tags:"CS"
-    },
-    {
-        id:3,
-        pId:[2],
-        sId:1,
-        tags:['DSA','os','dbms'],
-        pName:'Statistics',
-        description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem illo, maiores ipsum explicabo voluptatibus eos nisi quod harum incidunt? Porro expedita iusto asperiores voluptatem, sit mollitia doloremque beatae, eligendi accusamus eum nisi esse! Magni, aliquid. Fugiat inventore mollitia harum quasi. Maiores omnis iste porro quod molestias eos assumenda corrupti excepturi alias rem, asperiores consequatur hic quo totam laboriosam ducimus iure. Sequi natus perspiciatis unde quae recusandae laboriosam ad distinctio magnam, ipsa porro ab pariatur at quibusdam odit corporis facilis."
-    },
-    {
-        id:4,
-        pId:[3],
-        sId:-1,
-        tags:['DSA','os','dbms'],
-        pName:'Mathematics',
-        description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem illo, maiores ipsum explicabo voluptatibus eos nisi quod harum incidunt? Porro expedita iusto asperiores voluptatem, sit mollitia doloremque beatae, eligendi accusamus eum nisi esse! Magni, aliquid. Fugiat inventore mollitia harum quasi. Maiores omnis iste porro quod molestias eos assumenda corrupti excepturi alias rem, asperiores consequatur hic quo totam laboriosam ducimus iure. Sequi natus perspiciatis unde quae recusandae laboriosam ad distinctio magnam, ipsa porro ab pariatur at quibusdam odit corporis facilis."
-    },
-    {
-        id:5,
-        pId:[3],
-        sId:-1,
-        tags:['DSA','os','dbms'],
-        pName:'DLD',
-        description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem illo, maiores ipsum explicabo voluptatibus eos nisi quod harum incidunt? Porro expedita iusto asperiores voluptatem, sit mollitia doloremque beatae, eligendi accusamus eum nisi esse! Magni, aliquid. Fugiat inventore mollitia harum quasi. Maiores omnis iste porro quod molestias eos assumenda corrupti excepturi alias rem, asperiores consequatur hic quo totam laboriosam ducimus iure. Sequi natus perspiciatis unde quae recusandae laboriosam ad distinctio magnam, ipsa porro ab pariatur at quibusdam odit corporis facilis."
-    },
-]
+let projects = null;
 
-export default projects;
+const obj = {
+  headers: {
+    "x-access-token":
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTA4MGM1MjZjZDk1NzE0ODQ0NmI5MGQiLCJpYXQiOjE2OTUwNDIzNDAsImV4cCI6MTY5NTEyODc0MH0.of-Ji0o2YKT2LT3CIruJdEXSNTtCO5gGxePs1lMBfEs",
+  },
+};
+
+const fetchData = async () => {
+  try {
+    const res = await fetch("http://127.0.0.1:3400/dashboard", {
+      method: "GET",
+      headers: obj.headers,
+    });
+
+    if (res.ok) {
+      projects = await res.json();
+    return projects;
+    } else {
+      console.log("Error:", res.statusText);
+      projects = null;
+      return projects;
+    }
+  } catch (err) {
+    console.error(err);
+    projects = null;
+    return projects;
+  }
+};
+
+projects = await fetchData();
+export default projects.data;

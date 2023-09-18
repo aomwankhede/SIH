@@ -27,7 +27,7 @@ const Proff_Dashboard = () => {
   const handleSearch = (searchTerm) => {
     setSearchTerm(searchTerm); // Track search term
     const filtered = projectA.filter((project) =>
-      project.pName.toLowerCase().includes(searchTerm.toLowerCase())
+      project.projectname.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setFilteredProjects(filtered);
   };

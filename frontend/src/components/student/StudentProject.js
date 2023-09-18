@@ -4,7 +4,7 @@ import ProjectCard from "./ProjectCard";
 
 function StudentProject() {
   // Use the filter method to filter projects based on the condition
-  const filteredProjects = projects.filter((project) => project.sId === 1);
+  const filteredProjects = projects.filter((project) => project.studentid === 1);
 
   return (
     <div>

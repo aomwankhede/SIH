@@ -5,12 +5,14 @@ const jwt = require('jsonwebtoken');
 const path = require('path')
 const User = require('./models/usermodel')
 const routes = require('./routes/route.js');
+const cors = require('cors')
  
 require("dotenv").config({
  path: path.join(__dirname, "../.env")
 });
  
 const app = express();
+app.use(cors());
  
 const PORT = process.env.PORT || 3400;
  
