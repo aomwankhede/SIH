@@ -18,20 +18,10 @@ const SearchBox = ({ onSearch }) => {
 
   return (
     <div>
-      <form className="form-inline my-2 my-lg-0" onSubmit={handleSubmit}>
-        <input
-          className="form-control mr-sm-2 mt-4 mb-2"
-          style={{ width: '50vw', border: '2px solid black' }}
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
-          value={searchTerm}
-          onChange={handleInputChange}
-        />
-        <button className="btn btn-outline-dark my-2 my-sm-0" type="submit">
-          Search
-        </button>
-      </form>
+    <form className="form-inline my-2 my-lg-0">
+      <input className="form-control mr-sm-2 mt-4 mb-2" style={{width:'50vw',border:'2px solid black'}} type="search" placeholder="Search" aria-label="Search"/>
+      <button className="btn btn-outline-dark my-2 my-sm-0" type="submit">Searchh</button>
+    </form>
     </div>
   );
 };
