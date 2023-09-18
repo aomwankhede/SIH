@@ -11,16 +11,10 @@ const SearchBox = ({ onSearch }) => {
     onSearch(newSearchTerm); // Update the project list when input changes
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault(); // Prevent form submission
-    onSearch(searchTerm); // Update the project list when form is submitted
-  };
-
   return (
     <div>
     <form className="form-inline my-2 my-lg-0">
-      <input className="form-control mr-sm-2 mt-4 mb-2" style={{width:'50vw',border:'2px solid black'}} type="search" placeholder="Search" aria-label="Search"/>
-      <button className="btn btn-outline-dark my-2 my-sm-0" type="submit">Searchh</button>
+      <input className="form-control mr-sm-2 mt-4 mb-2" style={{width:'50vw',border:'2px solid black'}} type="search" placeholder="Search" aria-label="Search" onChange={handleInputChange}/>
     </form>
     </div>
   );
@@ -31,9 +25,9 @@ const Proff_Dashboard = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleSearch = (searchTerm) => {
-    setSearchTerm(searchTerm);
+    setSearchTerm(searchTerm); // Track search term
     const filtered = projectA.filter((project) =>
-      project.projectName.toLowerCase().includes(searchTerm.toLowerCase())
+      project.pName.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setFilteredProjects(filtered);
   };
