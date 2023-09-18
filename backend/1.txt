@@ -9,3 +9,4 @@ Features implemented (backend)
 TO DO
 * Redirecting user to dashboard on login
 * supervisor routes for updating the project data
+* updating project database on approval of professor
