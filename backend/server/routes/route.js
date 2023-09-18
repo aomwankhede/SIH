@@ -9,13 +9,17 @@ router.post('/signup',upload.array('projectfile[]'), userController.signup);
  
 router.post('/login', userController.login);
 
-router.post('/dashboard',userController.allowIfLoggedin)
+router.get('/dashboard',userController.allowIfLoggedin, projectController.getprojects);
 
-router.post('/dashboard/requests',userController.allowIfLoggedin, projectController.getrequests);
+router.get('/dashboard/requests',userController.allowIfLoggedin, projectController.getrequests);
 
-router.post('/project',userController.allowIfLoggedin, projectController.projectsave);
+router.post('/project',userController.allowIfLoggedin, userController.grantAccess('createOwn', 'project'), projectController.projectsave);
+
+// router.post('/approve',userController.allowIfLoggedin,submit.request)
 
 router.post('/sendrequest',userController.allowIfLoggedin, submit.request, projectController.sendrequest);
+
+// router.put('/response',userController.allowIfLoggedin, projectController.updaterequest);
  
 router.get('/user/:userId', userController.allowIfLoggedin, userController.getUser);
  

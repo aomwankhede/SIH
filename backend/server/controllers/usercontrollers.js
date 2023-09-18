@@ -15,7 +15,12 @@ async function validatePassword(plainPassword, hashedPassword) {
  
 exports.signup = async (req, res, next) => {
  try {
-  const {username, email, password, role ,sid, profid} = req.body
+  const {username, email, password, role, sid, profid} = req.body
+  const ifexist = await User.findOne({email});
+  // if(ifexist){
+  //   res.redirect('/signup')
+  // }
+  
   const hashedPassword = await hashPassword(password);
   const newUser = new User({username, email, password: hashedPassword,studentid:sid || null, profid:profid || null, role: role || "basic" ,});
   // if(req.files){
@@ -27,6 +32,9 @@ exports.signup = async (req, res, next) => {
   //   console.log(path);
   //   User.projectfile = path
   // }
+  // if(profid){
+  //   newUser.role = "supervisor";
+  // }  
   if(newUser.email == process.env.ADMIN_EMAIL){
     newUser.role = "admin"
   }

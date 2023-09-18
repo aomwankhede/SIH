@@ -3,8 +3,9 @@ const Request = require("../models/request")
 
 exports.projectsave = async(req,res,next) => {
     try{
+      const userid = req.user.profid
       const { name, desc, tags, professorid } = req.body
-      const newProject = new Project({ projectname:name, description: desc, tags:tags, profid:professorid });
+      const newProject = new Project({ projectname:name, description: desc, tags:tags, profid:userid });
       if(req.body.studentid){
         const id = req.body.studentid
         console.log(id);
@@ -20,18 +21,25 @@ exports.projectsave = async(req,res,next) => {
     }
    }
 
+   exports.getprojects = async (req, res, next) => {
+    const projects = await Project.find({});
+    res.status(200).json({
+     data: projects
+    });
+   }
+   
    exports.sendrequest = async(req, res,next)=>{
     try{
 
       // const {senderid, recipientid} = req.body
       const senderid = req.user._id;
       const recipientid = profid;
-    //   const projectid = projectid;
+      const projid = projectid;
 
       const request = new Request({
         sender: senderid,
         recipient: recipientid,
-        // project: projectid,
+        project: projid,
         status: 'pending', 
       });
 
@@ -43,6 +51,18 @@ exports.projectsave = async(req,res,next) => {
       next(err)
     }
    }
+
+  //  exports.updaterequest = async (req,res) =>{
+  //   try{
+  //     const response = req.body
+  //     if(response == 'approved'){
+  //       Request.findByIdAndUpdate({})
+  //     }
+
+  //   }catch(err){
+  //     next(err)
+  //   }
+  //  }
 
    exports.getrequests = async (req,res,next) =>{
     try{
@@ -64,3 +84,5 @@ exports.projectsave = async(req,res,next) => {
         next(err)
     }
    }
+
+   

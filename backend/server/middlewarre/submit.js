@@ -2,7 +2,8 @@
 
 exports.request = async (req,res,next)=>{
     try{
-        profid = "65069114ffa0b22f01e0079b" //ID of professor
+        profid = "6507d147d3683e5f6fd5e4f6" //ID of professor
+        projectid = "6507d065d3683e5f6fd5e4f0"
         next()
     }catch(err){
         next(err);
