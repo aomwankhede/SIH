@@ -15,6 +15,10 @@ router.get('/dashboard/requests',userController.allowIfLoggedin, projectControll
 
 router.post('/project',userController.allowIfLoggedin, userController.grantAccess('createOwn', 'project'), projectController.projectsave);
 
+router.put('/project/:projectid',userController.allowIfLoggedin, userController.grantAccess('updateOwn', 'project'), projectController.projectupdate);
+
+router.delete('/project/:projectid',userController.allowIfLoggedin, userController.grantAccess('deleteOwn', 'project'), projectController.projectdelete);
+
 // router.post('/approve',userController.allowIfLoggedin,submit.request)
 
 router.post('/sendrequest',userController.allowIfLoggedin, submit.request, projectController.sendrequest);

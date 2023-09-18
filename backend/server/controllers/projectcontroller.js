@@ -28,6 +28,34 @@ exports.projectsave = async(req,res,next) => {
      data: projects
     });
    }
+
+   exports.projectupdate = async (req, res, next) => {
+    try {
+     const update = req.body
+     const pupdatetId = req.params.projectid;
+     await Project.findByIdAndUpdate(pupdatetId, update);
+     const user = await Project.findById(pupdatetId)
+     res.status(200).json({
+      data: user,
+      message: 'Project has been updated'
+     });
+    } catch (error) {
+     next(error)
+    }
+   }
+
+   exports.projectdelete = async (req, res, next) => {
+    try {
+     const pdeleteId = req.params.projectid;
+     await Project.findByIdAndDelete(pdeleteId);
+     res.status(200).json({
+      data: null,
+      message: 'Project has been deleted'
+     });
+    } catch (error) {
+     next(error)
+    }
+   }
    
    exports.sendrequest = async(req, res,next)=>{
     try{
