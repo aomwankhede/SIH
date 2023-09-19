@@ -153,19 +153,39 @@ const ProjectCard = ({ key, project }) => {
                       >
                         {deadline.description}
                         {console.log(deadline)}
-                        {
-                          (deadline.googleDriveLink.length>0)?
-                          <button style={{ borderRadius: '5px', cursor: 'pointer'}}>
-                          <a
+                        {deadline.googleDriveLink.length > 0 ? (
+                          <button
+                            style={{ borderRadius: "5px", cursor: "pointer" }}
+                          >
+                            {/* <a
                             href={`${deadline.googleDriveLink}`}
                             target="_blank"
                             style={{textDecoration: 'none',color:'black' ,fontWeight: 'bold'}}
                           >
                             See Submission
-                          </a>
-                        </button>:
+                          </a> */}
+                            <a
+                              href={
+                                deadline.googleDriveLink.startsWith(
+                                  "http://"
+                                ) ||
+                                deadline.googleDriveLink.startsWith("https://")
+                                  ? deadline.googleDriveLink
+                                  : `http://${deadline.googleDriveLink}`
+                              }
+                              target="_blank"
+                              style={{
+                                textDecoration: "none",
+                                color: "black",
+                                fontWeight: "bold",
+                              }}
+                            >
+                              See Submission
+                            </a>
+                          </button>
+                        ) : (
                           <span>No submission found</span>
-                        }
+                        )}
                       </li>
                     ) : (
                       ""
