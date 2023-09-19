@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import deadlines from "../../dummyDeadline";
 
 const ProjectCard = ({ key, project }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,42 +34,25 @@ const ProjectCard = ({ key, project }) => {
             ) : (
               <div>
                 <ol type="i">
-                  <li
-                    className="mt-1"
-                    style={{
-                      border: "2px double #666362",
-                      height: "34px",
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "center",
-                    }}
-                  >
-                    <button
-                      type="button"
-                      className="open-file-button"
-                      onClick={() => {}}
-                    >
-                      Open File 1
-                    </button>
-                  </li>
-                  <li
-                    className="mt-1"
-                    style={{
-                      border: "2px double #666362",
-                      height: "34px",
-                      display: "flex",
-                      justifyContent: "space-between", // Add this line
-                      alignItems: "center",
-                    }}
-                  >
-                    <button
-                      type="button"
-                      className="open-file-button"
-                      onClick={() => {}}
-                    >
-                      Open File 2
-                    </button>
-                  </li>
+                  {deadlines.map((deadline) =>
+                    deadline.projectname === project.projectname ? (
+                      <li
+                        className="mt-1"
+                        style={{
+                          padding: "2px",
+                          border: "2px double #666362",
+                          height: "34px",
+                          display: "flex",
+                          justifyContent: "space-between",
+                          alignItems: "center",
+                        }}
+                      >
+                        {deadline.description}
+                      </li>
+                    ) : (
+                      ""
+                    )
+                  )}
                 </ol>
                 <div
                   style={{
