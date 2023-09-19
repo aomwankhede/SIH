@@ -8,7 +8,7 @@ import StudentProject from "./components/student/StudentProject";
 import Proff_Dashboard from "./components/professor/Proff_Dashboard";
 import ProffProject from "./components/professor/ProffProject";
 function App() {
-  const isProffessor = true;
+  const isProffessor = false;
   return (
     <Router>
       <Navbar />
