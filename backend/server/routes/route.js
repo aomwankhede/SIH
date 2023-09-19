@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/usercontrollers');
 const projectController = require('../controllers/projectcontroller');
+const deadlineController = require('../controllers/deadlinecontroller')
 const upload = require('../middlewarre/upload')
 const submit = require('../middlewarre/submit')
  
@@ -24,7 +25,11 @@ router.delete('/project/:projectid',userController.allowIfLoggedin, userControll
 router.post('/sendrequest',userController.allowIfLoggedin, submit.request, projectController.sendrequest);
 
 // router.put('/response',userController.allowIfLoggedin, projectController.updaterequest);
- 
+
+router.get('/deadline', deadlineController.getdeadlines );
+
+router.post('/deadline', userController.allowIfLoggedin, userController.grantAccess('createOwn', 'deadline'), deadlineController.createdeadline);
+
 router.get('/user/:userId', userController.allowIfLoggedin, userController.getUser);
  
 router.get('/users', userController.allowIfLoggedin, userController.grantAccess('readAny', 'profile'), userController.getUsers);
