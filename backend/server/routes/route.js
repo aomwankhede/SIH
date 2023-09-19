@@ -28,7 +28,7 @@ router.post('/sendrequest',userController.allowIfLoggedin, submit.request, proje
 
 router.get('/deadline', deadlineController.getdeadlines );
 
-router.post('/deadline', userController.allowIfLoggedin, userController.grantAccess('createOwn', 'deadline'), deadlineController.createdeadline);
+router.post('/deadline', deadlineController.createdeadline);
 
 router.get('/user/:userId', userController.allowIfLoggedin, userController.getUser);
  

@@ -3,11 +3,11 @@ const Schema = mongoose.Schema
 
 const deadlineschema = new Schema({
     studentid:{
-        type:Schema.Types.ObjectId,
+        type:String,
         ref:'user'
     },
     proffid:{
-        type:Schema.Types.ObjectId,
+        type:String,
         ref:'user'
     },
     marks:{
@@ -20,8 +20,11 @@ const deadlineschema = new Schema({
         type:String
     },
     projectname:{
-        type:Schema.Types.ObjectId,
+        type:String,
         ref:'project'
+    },
+    deadlineDate:{
+        type:Date
     }
 },{timestamps:true})
 
