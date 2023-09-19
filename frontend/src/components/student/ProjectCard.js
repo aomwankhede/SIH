@@ -32,11 +32,66 @@ const ProjectCard = ({ key, project }) => {
               <div>{project.description}</div>
             ) : (
               <ol type="i">
-                <li className="mt-1" style={{border:'2px double #666362'}}></li>
-                <li className="mt-1" style={{border:'2px double #666362'}}></li>
-                <li className="mt-1" style={{border:'2px double #666362'}}></li>
-                <li className="mt-1" style={{border:'2px double #666362'}}></li>
-                <li className="mt-1" style={{border:'2px double #666362'}}></li>
+                <li
+                  className="mt-1"
+                  style={{ border: "2px double #666362", height: "34px" }}
+                >
+                  <input
+                    type="file"
+                    style={{ position: "relative", marginLeft: "71%" }}
+                  />
+                  <button type="button" className="submit-button">
+                    Submit
+                  </button>
+                </li>
+                <li
+                  className="mt-1"
+                  style={{ border: "2px double #666362", height: "34px" }}
+                >
+                  <input
+                    type="file"
+                    style={{ position: "relative", marginLeft: "71%" }}
+                  />
+                  <button type="button" className="submit-button">
+                    Submit
+                  </button>
+                </li>
+                <li
+                  className="mt-1"
+                  style={{ border: "2px double #666362", height: "34px" }}
+                >
+                  <input
+                    type="file"
+                    style={{ position: "relative", marginLeft: "71%" }}
+                  />
+                  <button type="button" className="submit-button">
+                    Submit
+                  </button>
+                </li>
+                <li
+                  className="mt-1"
+                  style={{ border: "2px double #666362", height: "34px" }}
+                >
+                  <input
+                    type="file"
+                    style={{ position: "relative", marginLeft: "71%" }}
+                  />
+                  <button type="button" className="submit-button">
+                    Submit
+                  </button>
+                </li>
+                <li
+                  className="mt-1"
+                  style={{ border: "2px double #666362", height: "34px" }}
+                >
+                  <input
+                    type="file"
+                    style={{ position: "relative", marginLeft: "71%" }}
+                  />
+                  <button type="button" className="submit-button">
+                    Submit
+                  </button>
+                </li>
               </ol>
             )}
           </div>

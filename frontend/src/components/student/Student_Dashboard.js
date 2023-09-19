@@ -13,6 +13,7 @@ const SearchBox = ({ onSearch }) => {
 
   return (
     <div>
+      <h2>Student</h2>
       <form className="form-inline my-2 my-lg-0">
         <input
           className="form-control mr-sm-2 mt-4 mb-2"
@@ -42,7 +43,14 @@ const Student_Dashboard = () => {
 
   return (
     <>
-      <div style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center" }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
         <SearchBox onSearch={handleSearch} />
       </div>
       <div

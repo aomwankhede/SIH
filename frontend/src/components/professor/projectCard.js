@@ -31,13 +31,57 @@ const ProjectCard = ({ key, project }) => {
             {window.location.href === "http://localhost:3000/" ? (
               <div>{project.description}</div>
             ) : (
-              <ol type="i">
-                <li className="mt-1" style={{border:'2px double #666362'}}></li>
-                <li className="mt-1" style={{border:'2px double #666362'}}></li>
-                <li className="mt-1" style={{border:'2px double #666362'}}></li>
-                <li className="mt-1" style={{border:'2px double #666362'}}></li>
-                <li className="mt-1" style={{border:'2px double #666362'}}></li>
-              </ol>
+              <div>
+                <ol type="i">
+                  <li
+                    className="mt-1"
+                    style={{
+                      border: "2px double #666362",
+                      height: "34px",
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                    }}
+                  >
+                    <button
+                      type="button"
+                      className="open-file-button"
+                      onClick={() => {}}
+                    >
+                      Open File 1
+                    </button>
+                  </li>
+                  <li
+                    className="mt-1"
+                    style={{
+                      border: "2px double #666362",
+                      height: "34px",
+                      display: "flex",
+                      justifyContent: "space-between", // Add this line
+                      alignItems: "center",
+                    }}
+                  >
+                    <button
+                      type="button"
+                      className="open-file-button"
+                      onClick={() => {}}
+                    >
+                      Open File 2
+                    </button>
+                  </li>
+                </ol>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    margin: "20px 0",
+                  }}
+                >
+                  <button type="button" className="add-deadline-button">
+                    Add Deadline
+                  </button>
+                </div>
+              </div>
             )}
           </div>
         </div>

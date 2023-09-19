@@ -43,7 +43,7 @@ let projects = null;
 const obj = {
   headers: {
     "x-access-token":
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTA3Y2Q4MjI3YzQ5MjNiZjMxYzA1ZTAiLCJpYXQiOjE2OTUwNDk4MjQsImV4cCI6MTY5NTEzNjIyNH0.Ly8ISpvL7XqVhxTPSyMacgi_dpAX79UyJMm6my9U4CI",
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTA4MGM1MjZjZDk1NzE0ODQ0NmI5MGQiLCJpYXQiOjE2OTUwNTk4NzYsImV4cCI6MTY5NTE0NjI3Nn0.kABwXR7HEr_LKyFXh8ZAHAnbW0mJOv2gkHFVioHDY8A",
   },
 };
 
@@ -56,7 +56,7 @@ const fetchData = async () => {
 
     if (res.ok) {
       projects = await res.json();
-    return projects;
+      return projects;
     } else {
       console.log("Error:", res.statusText);
       projects = null;

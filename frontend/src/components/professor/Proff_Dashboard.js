@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import projectA from '../../dummyProjectAssigned';
-import ProjectCard from './projectCard';
+import React, { useState } from "react";
+import projectA from "../../dummyProjectAssigned";
+import ProjectCard from "./projectCard";
 
 const SearchBox = ({ onSearch }) => {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
 
   const handleInputChange = (e) => {
     const newSearchTerm = e.target.value;
@@ -13,16 +13,23 @@ const SearchBox = ({ onSearch }) => {
 
   return (
     <div>
-    <form className="form-inline my-2 my-lg-0">
-      <input className="form-control mr-sm-2 mt-4 mb-2" style={{width:'50vw',border:'2px solid black'}} type="search" placeholder="Search" aria-label="Search" onChange={handleInputChange}/>
-    </form>
+      <form className="form-inline my-2 my-lg-0">
+        <input
+          className="form-control mr-sm-2 mt-4 mb-2"
+          style={{ width: "50vw", border: "2px solid black" }}
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+          onChange={handleInputChange}
+        />
+      </form>
     </div>
   );
 };
 
 const Proff_Dashboard = () => {
   const [filteredProjects, setFilteredProjects] = useState(projectA);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
 
   const handleSearch = (searchTerm) => {
     setSearchTerm(searchTerm); // Track search term
@@ -34,20 +41,28 @@ const Proff_Dashboard = () => {
 
   return (
     <>
-      <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
+      <h2>Proffessor</h2>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
         <SearchBox onSearch={handleSearch} />
       </div>
       <div
         style={{
-          display: 'flex',
-          flexDirection: 'column',
-          textAlign: 'center',
-          justifyContent: 'center',
-          height: '50vh',
+          display: "flex",
+          flexDirection: "column",
+          textAlign: "center",
+          justifyContent: "center",
+          height: "50vh",
         }}
       >
         {filteredProjects.length === 0 ? (
-          searchTerm === '' ? (
+          searchTerm === "" ? (
             <h1>No projects available</h1>
           ) : (
             <h1>No match found</h1>
