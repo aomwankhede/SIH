@@ -10,6 +10,7 @@ ac.grant("supervisor")
  .extend("basic")
  .readAny("profile")
  .createOwn("project")
+ .createOwn("deadline")
  .updateOwn("project")
  .deleteOwn("project")
  
