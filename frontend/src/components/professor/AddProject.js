@@ -1,29 +1,29 @@
-import React, { useState } from 'react';
-import Projectcard from './projectCard';
+import React, { useState } from "react";
+import Projectcard from "./projectCard";
 
 const initialObj = {
   id: 5,
   pId: 3,
   sId: 1,
   description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. ...",
-  projectname: 'DLD1'
+  projectname: "DLD1",
 };
 
 const AddProject = () => {
   const [formData, setFormData] = useState({
-    title: '',
-    description: '',
-    tag: ''
+    title: "",
+    description: "",
+    tag: "",
   });
 
   const [obj, setObj] = useState(initialObj);
   const [showProjectCard, setShowProjectCard] = useState(false);
-  
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: value
+      [name]: value,
     });
   };
 
@@ -33,14 +33,13 @@ const AddProject = () => {
     setObj({
       ...obj,
       projectname: formData.title,
-      description: formData.description
+      description: formData.description,
     });
     setShowProjectCard(true);
   };
 
   return (
     <div>
-      
       <div className="container my-3">
         <h2>Add a Project</h2>
         <form className="my-3" onSubmit={handleFormSubmit}>
@@ -79,7 +78,6 @@ const AddProject = () => {
         </form>
       </div>
       {showProjectCard && <Projectcard key={5} project={obj} />}
-      
     </div>
   );
 };

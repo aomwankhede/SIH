@@ -46,6 +46,11 @@ exports.updatedeadlines = async (req, res, next) => {
   try {
     const { projectname, link } = req.body;
 
+    console.log("************");
+    console.log(projectname);
+    console.log(link);
+    console.log("************");
+
     // Find the first document with the specified projectname and empty googleDriveLink
     const updatedDeadline = await Deadline.findOneAndUpdate(
       { projectname: projectname, googleDriveLink: "" },
@@ -54,7 +59,7 @@ exports.updatedeadlines = async (req, res, next) => {
     );
 
     if (!updatedDeadline) {
-      return res.status(404).json({ message: "No matching deadline found" });
+      return res.status(403).json({ message: "No matching deadline found" });
     }
 
     res.json({

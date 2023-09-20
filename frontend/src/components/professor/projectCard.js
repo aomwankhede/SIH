@@ -124,8 +124,9 @@ const ProjectCard = ({ key, project }) => {
       <div className="accordion-item">
         <h2 className="accordion-header" id={`panelsStayOpen-headingOne`}>
           <button
-            className={`accordion-button ${isOpen ? "active" : ""
-              } bg-dark text-light`}
+            className={`accordion-button ${
+              isOpen ? "active" : ""
+            } bg-dark text-light`}
             type="button"
             onClick={handleClick}
           >

@@ -8,13 +8,18 @@ const DeadlineItem = ({ filteredDeadline }) => {
   const changeON = (e) => {
     setLink(e.target.value);
   };
-
   const handleSubmit = async () => {
-    const t1 = await axios.post("http://localhost:3400/updatedeadlines", {
-      projectname: filteredDeadline.projectname,
-      link: link,
-    });
-    console.log(t1);
+    try {
+      const t1 = await axios.post("http://localhost:3400/updatedeadlines", {
+        projectname: filteredDeadline.projectname,
+        link: link,
+      });
+    } catch {
+      setLink(filteredDeadline.googleDriveLink);
+      alert(
+        "Pls note that once submitted we cannot update or change submission"
+      );
+    }
   };
 
   return (
@@ -32,11 +37,7 @@ const DeadlineItem = ({ filteredDeadline }) => {
         value={link}
         style={{ position: "relative", marginLeft: "71%" }}
       />
-      <button
-        type="button"
-        className="submit-button"
-        onClick={handleSubmit}
-      >
+      <button type="button" className="submit-button" onClick={handleSubmit}>
         Submit
       </button>
     </li>
@@ -55,7 +56,9 @@ const ProjectCard = ({ project }) => {
       <div className="accordion-item">
         <h2 className="accordion-header" id={`panelsStayOpen-headingOne`}>
           <button
-            className={`accordion-button ${isOpen ? "active" : ""} bg-dark text-white`}
+            className={`accordion-button ${
+              isOpen ? "active" : ""
+            } bg-dark text-white`}
             type="button"
             onClick={handleClick}
           >
@@ -75,7 +78,9 @@ const ProjectCard = ({ project }) => {
             ) : (
               <ol type="i">
                 {deadlines
-                  .filter((deadline) => deadline.projectname === project.projectname)
+                  .filter(
+                    (deadline) => deadline.projectname === project.projectname
+                  )
                   .map((filteredDeadline, index) => (
                     <DeadlineItem
                       key={index}

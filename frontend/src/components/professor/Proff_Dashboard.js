@@ -14,7 +14,6 @@ const SearchBox = ({ onSearch }) => {
 
   return (
     <div>
-      
       <form className="form-inline my-2 my-lg-0">
         <input
           className="form-control mr-sm-2 mt-4 mb-2"
@@ -54,8 +53,8 @@ const Proff_Dashboard = () => {
       >
         <SearchBox onSearch={handleSearch} />
       </div>
-      
-      <AddProject/>
+
+      <AddProject />
       <div
         style={{
           display: "flex",
