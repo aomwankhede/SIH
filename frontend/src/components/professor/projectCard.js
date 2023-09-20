@@ -2,23 +2,33 @@ import React, { useState } from "react";
 import deadlines from "../../dummyDeadline";
 
 const ProjectCard = ({ key, project }) => {
+  const [isVisible, setIsVisible] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const handleClick = () => {
     setIsOpen(!isOpen);
   };
-
+  const handleDeleteClick = () => {
+    setIsVisible(false); // Hide the component
+  };
+  if (!isVisible) {
+    return null; // Return null if component is not visible
+  }
   return (
     <div className="accordion mt-2" id={`accordionPanelsStayOpenExample`}>
       <div className="accordion-item">
         <h2 className="accordion-header" id={`panelsStayOpen-headingOne`}>
           <button
-            className={`accordion-button ${
-              isOpen ? "active" : ""
-            } bg-dark text-light`}
+            className={`accordion-button ${isOpen ? "active" : ""
+              } bg-dark text-light`}
             type="button"
             onClick={handleClick}
           >
             {project.projectname}
+            <i
+              className="fa-solid fa-trash mx-2"
+              onClick={handleDeleteClick}
+              style={{ float: "right" }}
+            ></i>
           </button>
         </h2>
         <div
