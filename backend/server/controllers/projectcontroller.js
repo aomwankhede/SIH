@@ -1,5 +1,6 @@
 const Project = require("../models/project")
 const Request = require("../models/request")
+const Deadline = require("../models/deadline")
 
 exports.projectsave = async(req,res,next) => {
     try{
@@ -23,7 +24,7 @@ exports.projectsave = async(req,res,next) => {
 
    exports.getprojects = async (req, res, next) => {
      const projects = await Project.find({});
-     console.log(projects);
+    //  console.log(projects);
     res.status(200).json({
      data: projects
     });
@@ -114,4 +115,4 @@ exports.projectsave = async(req,res,next) => {
     }
    }
 
-   
+  
