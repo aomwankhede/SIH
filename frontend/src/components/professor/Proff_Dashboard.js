@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import projectA from "../../dummyProjectAssigned";
+import AddProject from "./AddProject";
 import ProjectCard from "./projectCard";
 
 const SearchBox = ({ onSearch }) => {
@@ -13,6 +14,7 @@ const SearchBox = ({ onSearch }) => {
 
   return (
     <div>
+      
       <form className="form-inline my-2 my-lg-0">
         <input
           className="form-control mr-sm-2 mt-4 mb-2"
@@ -52,6 +54,8 @@ const Proff_Dashboard = () => {
       >
         <SearchBox onSearch={handleSearch} />
       </div>
+      
+      <AddProject/>
       <div
         style={{
           display: "flex",

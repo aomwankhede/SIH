@@ -3,7 +3,11 @@ let projects = null;
 const obj = {
   headers: {
     "x-access-token":
+<<<<<<< HEAD
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTA4N2ZkYjNiYWU4NThhNDViMzgxNzAiLCJpYXQiOjE2OTUxOTA1NzQsImV4cCI6MTY5NTI3Njk3NH0.RL5se4FyMlqsB4xf80hl9g0Qt7da_ej1piSNimMddaU",
+=======
       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTA4MGM1MjZjZDk1NzE0ODQ0NmI5MGQiLCJpYXQiOjE2OTUxNDY1OTYsImV4cCI6MTY5NTIzMjk5Nn0.Nfl5otcc81u5-COs8xACatQwB9v4-hLsCVrdxdhtGFI",
+>>>>>>> 79e172bd9d75d69877223e52cb9e9dfcb8e31866
   },
 };
 
