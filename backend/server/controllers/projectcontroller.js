@@ -2,6 +2,7 @@ const Project = require("../models/project")
 const Request = require("../models/request")
 const Deadline = require("../models/deadline")
 
+//to create projects by the professor
 exports.projectsave = async(req,res,next) => {
     try{
       const userid = req.user.profid
@@ -22,6 +23,7 @@ exports.projectsave = async(req,res,next) => {
     }
    }
 
+   //to get the projects from the database
    exports.getprojects = async (req, res, next) => {
      const projects = await Project.find({});
     //  console.log(projects);
@@ -30,6 +32,7 @@ exports.projectsave = async(req,res,next) => {
     });
    }
 
+   //to update a project
    exports.projectupdate = async (req, res, next) => {
     try {
      const update = req.body
@@ -45,6 +48,7 @@ exports.projectsave = async(req,res,next) => {
     }
    }
 
+   //to delete a project
    exports.projectdelete = async (req, res, next) => {
     try {
      const pdeleteId = req.params.projectid;
@@ -58,6 +62,7 @@ exports.projectsave = async(req,res,next) => {
     }
    }
    
+   //to send a request to professor for approval of project
    exports.sendrequest = async(req, res,next)=>{
     try{
 
@@ -82,6 +87,7 @@ exports.projectsave = async(req,res,next) => {
     }
    }
 
+   //to update the request on approval of professor
   //  exports.updaterequest = async (req,res) =>{
   //   try{
   //     const response = req.body
@@ -94,6 +100,7 @@ exports.projectsave = async(req,res,next) => {
   //   }
   //  }
 
+  //to get all the requests in request database
    exports.getrequests = async (req,res,next) =>{
     try{
         const userdata = req.user 

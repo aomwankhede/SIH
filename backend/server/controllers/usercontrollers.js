@@ -13,6 +13,7 @@ async function validatePassword(plainPassword, hashedPassword) {
  return await bcrypt.compare(plainPassword, hashedPassword);
 }
  
+// To signup and save users
 exports.signup = async (req, res, next) => {
  try {
   const {username, email, password, role, sid, profid} = req.body
@@ -52,6 +53,7 @@ exports.signup = async (req, res, next) => {
  }
 }
 
+//to get users from database
 exports.fetchuser =async (req, res)=> {
   try{
     const fetch = await User.find({})
@@ -64,6 +66,7 @@ exports.fetchuser =async (req, res)=> {
   }
 }
 
+// to check and login users 
 exports.login = async (req, res, next) => {
     try {
      const { email, password } = req.body;
@@ -84,6 +87,7 @@ exports.login = async (req, res, next) => {
     }
    }
 
+   //to get users in the database for admin
    exports.getUsers = async (req, res, next) => {
     const users = await User.find({});
     res.status(200).json({
@@ -91,6 +95,7 @@ exports.login = async (req, res, next) => {
     });
    }
     
+   //to get a specific user in the database for admin
    exports.getUser = async (req, res, next) => {
     try {
      const userId = req.params.userId;
@@ -104,6 +109,7 @@ exports.login = async (req, res, next) => {
     }
    }
     
+   //to update the data of user in database
    exports.updateUser = async (req, res, next) => {
     try {
      const update = req.body
@@ -119,6 +125,7 @@ exports.login = async (req, res, next) => {
     }
    }
     
+   // to delete the data of user in database
    exports.deleteUser = async (req, res, next) => {
     try {
      const userId = req.params.userId;
@@ -132,6 +139,7 @@ exports.login = async (req, res, next) => {
     }
    }
     
+   //gives access to the user based on their role
    exports.grantAccess = function(action, resource) {
     return async (req, res, next) => {
      try {
@@ -148,6 +156,7 @@ exports.login = async (req, res, next) => {
     }
    }
     
+   //allows the user to access the route only if they are loggedin
    exports.allowIfLoggedin = async (req, res, next) => {
     try {
      const user = res.locals.loggedInUser;

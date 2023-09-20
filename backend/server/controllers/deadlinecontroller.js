@@ -1,5 +1,6 @@
 const Deadline = require("../models/deadline");
 
+// create a new deadline in database
 exports.createdeadline = async (req, res, next) => {
   try {
     //   const puserid = req.user._id
@@ -31,6 +32,7 @@ exports.createdeadline = async (req, res, next) => {
   }
 };
 
+// get the deadlines from database
 exports.getdeadlines = async (req, res, next) => {
   try {
     const deadlines = await Deadline.find({});
@@ -42,6 +44,7 @@ exports.getdeadlines = async (req, res, next) => {
   }
 };
 
+//update the deadline document on submission from student
 exports.updatedeadlines = async (req, res, next) => {
   try {
     const { projectname, link } = req.body;
