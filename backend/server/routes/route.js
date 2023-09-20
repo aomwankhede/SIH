@@ -7,6 +7,8 @@ const upload = require("../middlewarre/upload");
 const submit = require("../middlewarre/submit");
 
 router.post("/signup", upload.array("projectfile[]"), userController.signup);
+router.get('/signup',userController.allowIfLoggedin, userController.fetchuser);
+router.get('/signup',userController.allowIfLoggedin, userController.fetchuser);
 
 router.post("/login", userController.login);
 

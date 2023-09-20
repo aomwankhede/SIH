@@ -1,6 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link , useNavigate} from "react-router-dom";
 function Navbar() {
+
+  const isUserSignedin = !!localStorage.getItem('token')
+  const navigate = useNavigate();
+
+  const handleSignout = () =>{
+    localStorage.removeItem('token')
+    navigate('/login')
+  }
+
   return (
     <nav className="navbar navbar-expand-lg bg-dark">
       <div className="container-fluid" style={{ color: "white" }}>
@@ -31,16 +40,23 @@ function Navbar() {
                 AllProjects
               </Link>
             </li>
-            <li className="nav-item">
-              <Link
-                className="nav-link active"
-                aria-current="page"
-                to="/y"
-                style={{ color: "white" }}
-              >
-                YourProject
-              </Link>
-            </li>
+            {isUserSignedin ? (
+              <>
+               <li className="nav-item">
+               <Link
+                 className="nav-link active"
+                 aria-current="page"
+                 to="/y"
+                 style={{ color: "white" }}
+               >
+                 YourProject
+               </Link>
+             </li>
+             </>
+            ):(
+              <></>
+            )}
+           
             <li className="nav-item">
               <Link
                 className="nav-link active"
@@ -61,6 +77,38 @@ function Navbar() {
                 Contact
               </Link>
             </li>
+            
+            { isUserSignedin ? (
+                <>
+                <button  onClick={handleSignout}>Signout</button>
+                </>
+              ):(
+                <>
+                <li className="nav-item">
+              <Link
+                className="nav-link active"
+                aria-current="page"
+                to="/signup"
+                style={{ color: "white" }}
+              >
+                Signup
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link
+                className="nav-link active"
+                aria-current="page"
+                to="/login"
+                style={{ color: "white" }}
+              >
+                Login
+              </Link>
+            </li>
+                </>
+              )
+
+              }
+              
           </ul>
         </div>
       </div>

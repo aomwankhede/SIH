@@ -52,6 +52,18 @@ exports.signup = async (req, res, next) => {
  }
 }
 
+exports.fetchuser =async (req, res)=> {
+  try{
+    const fetch = await User.find({})
+    const userrole = req.user.role
+    const fprofid = req.user.profid
+    const fstdid = req.user.studentid
+    res.json({fetch : fetch, role : userrole, profid : fprofid, stdid : fstdid})
+  }catch(err){
+    next(err)
+  }
+}
+
 exports.login = async (req, res, next) => {
     try {
      const { email, password } = req.body;
@@ -65,7 +77,7 @@ exports.login = async (req, res, next) => {
      await User.findByIdAndUpdate(user._id, { accessToken })
      res.status(200).json({
       data: { email: user.email, role: user.role },
-      accessToken
+      token: accessToken
      })
     } catch (error) {
      next(error);
