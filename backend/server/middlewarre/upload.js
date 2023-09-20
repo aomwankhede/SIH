@@ -1,6 +1,7 @@
 const path = require('path')
 const multer = require('multer')
 
+//created a file upload middleware to store files in database
 var storage = multer.diskStorage({
     destination: function(req, file, cb){
         cb(null, 'server/uploads/')
